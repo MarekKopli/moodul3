@@ -30,21 +30,70 @@
                             </label>
                         @enderror
                     </div>
-                    <div class="form-control w-full max-w-xs">
+                    <div class="form-control w-full">
                         <label class="label">
-                            <span class="label-text">Tags</span>
+                            <span class="label-text">Dietary Preferences</span>
                         </label>
-                        <select multiple class="select select-bordered" name="tags[]">
-                            @foreach($tags as $tag)
-                                <option value="{{$tag->id}}">{{$tag->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('tags.*')
+                        <div class="flex space-x-4">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="vegan" class="checkbox checkbox-primary" value="1"/>
+                                <span class="label-text ml-2">Vegan</span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="gluten_free" class="checkbox checkbox-primary" value="1"/>
+                                <span class="label-text ml-2">Gluten Free</span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="vegetarian" class="checkbox checkbox-primary" value="1"/>
+                                <span class="label-text ml-2">Vegetarian</span>
+                            </label>
+                        </div>
+                        @error('vegan')
+                            <label class="label">
+                                <span class="label-text-alt text-error">{{$message}}</span>
+                            </label>
+                        @enderror
+                        @error('gluten_free')
+                            <label class="label">
+                                <span class="label-text-alt text-error">{{$message}}</span>
+                            </label>
+                        @enderror
+                        @error('vegetarian')
                             <label class="label">
                                 <span class="label-text-alt text-error">{{$message}}</span>
                             </label>
                         @enderror
                     </div>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">Spiciness Level</span>
+                        </label>
+                        <select name="spiciness" class="select select-bordered w-full @error('spiciness') select-error @enderror">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        @error('spiciness')
+                            <label class="label">
+                                <span class="label-text-alt text-error">{{$message}}</span>
+                            </label>
+                        @enderror
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">Price</span>
+                        </label>
+                        <input name="price" type="number" step="0.01" placeholder="Price" class="input input-bordered w-full @error('price') input-error @enderror"/>
+                        @error('price')
+                            <label class="label">
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            </label>
+                        @enderror
+                    </div>
+
                     <div class="form-control w-full">
                         <label class="label">
                             <span class="label-text">Images</span>

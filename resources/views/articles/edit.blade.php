@@ -32,6 +32,7 @@
                         </label>
                         @enderror
                     </div>
+
                     <input type="submit" value="Update" class="btn btn-primary mt-3">
                 </form>
             </div>

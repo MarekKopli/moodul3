@@ -24,7 +24,12 @@ class StoreArticleRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
-            'images.*' => 'image'
+            'images.*' => 'image',
+            'price' => 'required|numeric|min:0',
+            'spiciness' => 'required|numeric|min:1|max:5',
+            'vegan' => 'boolean',
+            'gluten_free' => 'boolean',
+            'vegetarian' => 'boolean'
         ];
     }
 }

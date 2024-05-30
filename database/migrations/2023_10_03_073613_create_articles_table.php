@@ -16,6 +16,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
+            $table->integer('price');
+            $table->integer('spiciness');
+            $table->boolean('vegan')->default(false);
+            $table->boolean('gluten_free')->default(false);
+            $table->boolean('vegetarian')->default(false);
 
 //            $table->unsignedBigInteger('user_id');
 //            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

@@ -21,6 +21,19 @@
                         <div class="card-body">
                             <h2 class="card-title">{{ $article->title }}</h2>
                             <p>{{ $article->snippet }}</p>
+                            <!-- Display Price -->
+                            <p><b>Price:</b> ${{ number_format($article->price, 2) }}</p>
+                            <!-- End Price -->
+                            <!-- Display Spiciness Level -->
+                            <p><b>Spiciness Level:</b> {{ $article->spiciness }}</p>
+                            <!-- End Spiciness Level -->
+                            <!-- Display Dietary Preferences -->
+                            <p><b>Dietary Preferences:</b>
+                                @if($article->vegan) Vegan, @endif
+                                @if($article->gluten_free) Gluten Free, @endif
+                                @if($article->vegetarian) Vegetarian @endif
+                            </p>
+                            <!-- End Dietary Preferences -->
                             <div class="stat">
                                 <div class="stat-desc">{{ $article->user->name }}</div>
                                 <div class="stat-desc"><b>Comments: </b>{{ $article->comments()->count() }}</div>
@@ -48,3 +61,4 @@
         </div>
     </div>
 @endsection
+
